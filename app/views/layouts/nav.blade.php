@@ -39,7 +39,7 @@
                     <ul class="nav navbar-nav">
                         <li>{{ HTML::link('/about', 'About')}}
                         </li>
-                        <li>{{ HTML::linkRoute('posts.index', 'Blog') }}
+                        <li>{{ HTML::link('/posts', 'Blog') }}
                         </li>
                         <li>{{ HTML::link('contact', 'Contact')}}
                         </li>

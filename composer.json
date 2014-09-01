@@ -9,8 +9,10 @@
 		"thujohn/share": "dev-master",
 		"intervention/image": "dev-master",
 		"barryvdh/laravel-elfinder": "dev-master",
-		"cviebrock/eloquent-sluggable": "2.*"
-	},
+		"cviebrock/eloquent-sluggable": "2.*",
+        "mcamara/laravel-localization": "0.13.*"
+
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",

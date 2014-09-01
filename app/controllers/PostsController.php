@@ -43,8 +43,8 @@ class PostsController extends \BaseController {
 		$posts->title = Input::get('title');
         $posts->slug = Str::slug(Input::get('title'));
 		$posts->body = Input::get('body');
-
-		$fileName = $input['thumbnail']->getClientOriginalName();
+        $posts->user_id = Auth::user()->id;
+        $fileName = $input['thumbnail']->getClientOriginalName();
 
 		$image = Image::make($input['thumbnail']->getRealPath());
 
@@ -69,13 +69,12 @@ class PostsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		$post = Post::findOrFail($id);
-        $blogpost = Post::whereSlug($slug)->first();
+    public function show($slug)
+    {
+        $post = Post::where('slug', '=', $slug)->first();
 
-        return View::make('posts.show', compact('post', 'blogpost'));
-	}
+        return View::make('posts.show', compact('post'));
+    }
 
 	/**
 	 * Show the form for editing the spcified resource.
@@ -119,5 +118,7 @@ class PostsController extends \BaseController {
 
 
 	}
+
+
 
 }

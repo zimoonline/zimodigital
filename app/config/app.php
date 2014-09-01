@@ -111,8 +111,10 @@ return array(
 		'Intervention\Image\ImageServiceProvider',
         'Barryvdh\Elfinder\ElfinderServiceProvider',
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+        'Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider'
 
-	),
+
+    ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -178,10 +180,12 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 	    'Share'			  => 'Thujohn\Share\ShareFacade',
-	    'Image' 		  => 'Intervention\Image\Facades\Image'
+	    'Image' 		  => 'Intervention\Image\Facades\Image',
+        'LaravelLocalization'   => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization'
 
 
 
-	),
+
+    ),
 
 );

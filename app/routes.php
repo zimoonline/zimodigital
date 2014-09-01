@@ -18,7 +18,7 @@ Route::resource('web', 'WebController');
 // Route::get('contact/temp', 'ContactController@temp');
 
 Route::group(array('before' => 'auth'), function(){
-	Route::resource('posts', 'PostsController', array('only' => array('create', 'store', 'edit', 'update', 'destroy')));
+    Route::resource('posts', 'PostsController', array('only' => array('create', 'store', 'edit', 'update', 'destroy')));
     Route::resource('web', 'WebController', array('only' => array('create', 'store', 'edit', 'update', 'destroy')));
 });
 
@@ -27,16 +27,17 @@ Route::group(array('before' => 'auth'), function(){
 Route::get('login', 'SessionController@create');
 Route::get('logout', 'SessionController@destroy');
 
+
 Route::resource('session', 'SessionController');
 
 Route::get('/', function()
 {
-	return View::make('index');
+    return View::make('index');
 });
 
 Route::get('about', function()
-{ 
-	return View::make('about');
+{
+    return View::make('about');
 });
 
 Route::resource('contact', 'ContactController');
