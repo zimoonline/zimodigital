@@ -1,15 +1,30 @@
 <?php
 
-class SessionController extends \BaseController {
+use ZIMO\Forms\SessionLoginForm;
+use ZIMO\Forms\UserRegistrationForm;
 
-	/**
+class SessionController extends \BaseController {
+    /**
+     * @var SessionLoginForm
+     */
+    private $sessionLoginForm;
+
+    function __construct(SessionLoginForm $sessionLoginForm)
+    {
+        $this->sessionLoginForm = $sessionLoginForm;
+    }
+
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		//
+        $posts = Post::orderBy('id', 'desc')->paginate(9);
+
+        return View::make('admin.index', compact('posts'));
 	}
 
 	/**
@@ -32,19 +47,18 @@ class SessionController extends \BaseController {
 	{
 		$input = Input::all();
 
-		
-		$validation = Validator::make($input, User::$rules);
-
-		if($validation->fails()) return Redirect::back()->withInput()->withErrors($validation);
+        $this->sessionLoginForm->validate($input);
 
 		$auth = Auth::attempt(array(
 			'email' 	=> $input['email'],
 			'password'  => $input['password']
 			));
+        Flash::success('Hello!');
+		if($auth) return Redirect::to('admin/index');
 
-		if($auth) return Redirect::intended('posts/create');
 
-		return Redirect::intended()->with('flash_message', 'Wrong credenitals');
+
+		return Redirect::intended();
 
 	}
 
@@ -91,7 +105,9 @@ class SessionController extends \BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::to('/')->with('flash_message', 'Odlogiran si');
+        Flash::message('You have been logged out!');
+
+		return Redirect::to('/');
 
 
 	}

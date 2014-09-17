@@ -1,7 +1,7 @@
 <?php
 
 /**
- * elFinder - file manager for webs.
+ * elFinder - file manager for web.
  * Core class.
  *
  * @package elfinder

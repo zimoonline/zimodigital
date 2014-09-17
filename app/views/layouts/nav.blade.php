@@ -14,26 +14,8 @@
                 
             </div>
 
-                @if(Auth::check())
 
-                    <div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">New <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li>{{ link_to_route('posts.create', 'New Post') }}</li>
-                                    <li>{{ link_to_route('web.create', 'New Web') }}</li>
-                                </ul>
-                            </li>
-                        </ul>
 
-                    </div><!-- /.navbar-collapse -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>{{ HTML::link('logout', 'Logout') }}</li>
-                    </ul>
-                @endif
-
-            @if(Auth::guest())
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
@@ -46,7 +28,6 @@
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
-            @endif
     </div>
         <!-- /.container -->
 </nav>

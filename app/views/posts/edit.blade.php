@@ -1,13 +1,12 @@
 @extends('layouts.master')
 
 @section('container')
-@include('layouts.nav')
-
+@include('layouts.nav-admin')
 <div class="col-md-8 col-md-offset-2" id="contact-form">
 
 <h1>Update post</h1>
 
-	{{ Form::model($post, array('method' => 'PATCH', 'route' => array('posts.update', $post->id))) }}
+	{{ Form::model($post, array('method' => 'PATCH', 'route' => array('posts.update', $post->slug))) }}
 
 		<div class="form-group">
 			{{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Title')) }}
@@ -15,6 +14,9 @@
 
 		<div class="form-group">
 			{{ Form::file('thumbnail', array('class' => 'button')) }}
+			<div class="picture">
+			{{ HTML::image( '/images/' . 'tn-' . $post->thumbnail) }}
+
 		</div>
 
 		<div class="form-group">
@@ -23,8 +25,8 @@
 
 		<div class="form-group">
 			{{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
-
-			{{ link_to_route("posts.destroy.get", "Obriši", $post->id, array('class' => 'btn btn-danger')) }}
+			{{--{{ link_to(URL::previous(), 'View Post', ['class' => 'btn btn-default']) }}--}}
+			{{ HTML::link('posts/' . $post->slug, 'View Post', ['class' => 'btn btn-default', 'target', '_blank']) }}
 		</div>
 
 

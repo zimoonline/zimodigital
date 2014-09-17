@@ -5,12 +5,14 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"way/generators": "dev-master",
+        "way/generators": "~2.0",
 		"thujohn/share": "dev-master",
 		"intervention/image": "dev-master",
 		"barryvdh/laravel-elfinder": "dev-master",
 		"cviebrock/eloquent-sluggable": "2.*",
-        "mcamara/laravel-localization": "0.13.*"
+        "mcamara/laravel-localization": "0.13.*",
+        "laracasts/flash": "~1.0",
+        "laracasts/validation": "~1.0"
 
     },
 	"autoload": {
@@ -21,7 +23,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+        "psr-4": {
+            "ZIMO\\": "app/ZIMO"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [

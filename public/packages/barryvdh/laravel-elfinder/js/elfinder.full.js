@@ -14,7 +14,7 @@
  */
 
 /**
- * @class elFinder - file manager for webs
+ * @class elFinder - file manager for web
  *
  * @author Dmitry (dio) Levashov
  **/
@@ -4503,7 +4503,7 @@ elFinder.prototype.resources = {
 			'application/javascript', 
 			'application/xhtml+xml', 
 			'audio/x-mp3-playlist', 
-			'application/x-webs-config',
+			'application/x-web-config',
 			'application/docbook+xml',
 			'application/x-php',
 			'application/x-perl',

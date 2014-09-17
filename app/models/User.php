@@ -6,12 +6,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 
-	protected $fillable = array('password', 'email');
+	protected $fillable = array('password', 'email', 'ime', 'prezime', 'thumbnail-profile');
 
-	public static $rules = array(
-		'password' => 'required',
-		'email'		=> 'required'
-	);
 
 	/**
 	 * The database table used by the model.
@@ -57,7 +53,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
 
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
+    }
 
 
 }

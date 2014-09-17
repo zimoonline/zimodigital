@@ -44,7 +44,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'errFolderNotFound'    : 'Dossier non trouvé.',
 			'errFileNotFound'      : 'Fichier non trouvé.',
 			'errTrgFolderNotFound' : 'Dossier destination "$1" non trouvé.',
-			'errPopup'             : 'Le navigateur webs a empêché l\'ouverture d\'une fenêtre "popup". Pour ouvrir le fichier, modifiez les options du navigateur webs.',
+			'errPopup'             : 'Le navigateur web a empêché l\'ouverture d\'une fenêtre "popup". Pour ouvrir le fichier, modifiez les options du navigateur web.',
 			'errMkdir'             : 'Impossible de créer le dossier "$1".',
 			'errMkfile'            : 'impossible de créer le fichier "$1".',
 			'errRename'            : 'Impossible de renommer "$1".',

@@ -180,3 +180,14 @@ small.text-muted {
 .footer-track a:link, .footer-track a:visited {
     text-decoration: none;
 }
+
+.thumb-user {
+    vertical-align: middle;
+    margin-top:10px;
+}
+
+.button-index {
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}

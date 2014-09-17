@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('container')
-@include('layouts.nav')
+@include('layouts.nav-admin')
 
 <div class="col-md-8 col-md-offset-2" id="contact-form">
     <h1>Create new web</h1>

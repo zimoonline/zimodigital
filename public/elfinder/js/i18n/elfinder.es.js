@@ -179,7 +179,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'about'           : 'Acerca',
 			'shortcuts'       : 'Accesos directos',
 			'help'            : 'Ayuda',
-			'webfm'           : 'Administrador de archivos webs',
+			'webfm'           : 'Administrador de archivos web',
 			'ver'             : 'Version',
 			'protocol'        : 'versión del protocolo',
 			'homepage'        : 'Project home',

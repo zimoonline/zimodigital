@@ -230,7 +230,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'about'           : 'Σχετικά',
 			'shortcuts'       : 'Συντομεύσεις',
 			'help'            : 'Βοήθεια',
-			'webfm'           : 'εργαλείο διαχείρισης αρχείων από το webs',
+			'webfm'           : 'εργαλείο διαχείρισης αρχείων από το web',
 			'ver'             : 'Έκδοση',
 			'protocolver'     : 'έκδοση πρωτοκόλλου',
 			'homepage'        : 'Σελίδα του project',

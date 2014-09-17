@@ -1,8 +1,21 @@
 <?php
 
+use ZIMO\Forms\PostForm;
+
 class PostsController extends \BaseController {
 
-	/**
+    /**
+     * @var PostForm
+     */
+    private $postForm;
+
+    function __construct(PostForm $postForm)
+    {
+        $this->postForm = $postForm;
+    }
+
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -33,17 +46,14 @@ class PostsController extends \BaseController {
 	{
 		$input = Input::all();
 
-		$validation = Validator::make($input, Post::$rules);
-
-
-		if($validation->fails()) return Redirect::back()->withInput()->withErrors($validation);
-		
+		$this->postForm->validate($input);
 
 		$posts = new Post;
 		$posts->title = Input::get('title');
         $posts->slug = Str::slug(Input::get('title'));
-		$posts->body = Input::get('body');
+		$posts->body = strip_tags(Input::get('body'));
         $posts->user_id = Auth::user()->id;
+
         $fileName = $input['thumbnail']->getClientOriginalName();
 
 		$image = Image::make($input['thumbnail']->getRealPath());
@@ -53,6 +63,9 @@ class PostsController extends \BaseController {
 		File::exists(public_path() . '/images/') or File::makeDirectory(public_path() . '/images/');
 
 		$image->save(public_path() . '/images/' . $fileName)
+              ->resize(150, null, function ($constraint) {
+                  $constraint->aspectRatio();
+              })
 			  ->save(public_path() . '/images/' . 'tn-' . $fileName);
 
 		$posts->thumbnail = $fileName;
@@ -60,7 +73,7 @@ class PostsController extends \BaseController {
 		$posts->save();
 
 
-		return Redirect::back();
+		return Redirect::to('admin/index');
 	}
 
 	/**
@@ -72,7 +85,6 @@ class PostsController extends \BaseController {
     public function show($slug)
     {
         $post = Post::where('slug', '=', $slug)->first();
-
         return View::make('posts.show', compact('post'));
     }
 
@@ -82,9 +94,9 @@ class PostsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
-		$post = Post::find($id);
+		$post = Post::whereSlug($slug)->first();
         return View::make('posts.edit', compact('post'));
 	
 	}
@@ -95,13 +107,15 @@ class PostsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($slug)
 	{
-		$post = Post::findOrFail($id);
+		$post = Post::whereSlug($slug)->first();
 		$post->fill(Input::all());
 		$post->save();
 
-		return Redirect::route('posts.edit', $id);
+        Flash::success('Post have been updated');
+
+		return Redirect::back();
 	}
 
 	/**
@@ -110,11 +124,11 @@ class PostsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($slug)
 	{
-		Post::findOrFail($id)->delete();
+		Post::whereSlug($slug)->delete();
 
-		return Redirect::route('posts.index');
+		return Redirect::back();
 
 
 	}

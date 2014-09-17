@@ -234,7 +234,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'about'           : 'О программе',
 			'shortcuts'       : 'Горячие клавиши',
 			'help'            : 'Помощь',
-			'webfm'           : 'Файловый менеджер для webs',
+			'webfm'           : 'Файловый менеджер для web',
 			'ver'             : 'Версия',
 			'protocolver'     : 'версия протокола',
 			'homepage'        : 'Сайт проекта',

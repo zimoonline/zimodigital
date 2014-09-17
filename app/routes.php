@@ -14,12 +14,30 @@
 
 Route::resource('posts', 'PostsController');
 Route::resource('web', 'WebController');
+Route::resource('users', 'UsersController');
 
 // Route::get('contact/temp', 'ContactController@temp');
 
 Route::group(array('before' => 'auth'), function(){
+
     Route::resource('posts', 'PostsController', array('only' => array('create', 'store', 'edit', 'update', 'destroy')));
     Route::resource('web', 'WebController', array('only' => array('create', 'store', 'edit', 'update', 'destroy')));
+    Route::get('admin/index', 'SessionController@index');
+
+
+
+    Route::post('@{ime}', [
+        'as' => 'profile_path',
+        'uses' => 'UsersController@update'
+    ]);
+
+
+    Route::get('@{ime}', [
+        'as' => 'profile_path',
+        'uses' => 'UsersController@edit'
+    ]);
+
+
 });
 
 
@@ -42,5 +60,7 @@ Route::get('about', function()
 
 Route::resource('contact', 'ContactController');
 
-Route::get("{id}/delete", array("as" => "posts.destroy.get", "uses" => "PostsController@destroy"));
-Route::get("/web/{id}/delete", array("as" => "web.destroy.get", "uses" => "WebController@destroy"));
+Route::get("/posts/{slug}/delete", array("as" => "posts.destroy.get", "uses" => "PostsController@destroy"));
+Route::get("/web/{slug}/delete", array("as" => "web.destroy.get", "uses" => "WebController@destroy"));
+
+

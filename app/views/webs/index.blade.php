@@ -2,8 +2,7 @@
 
 @section('container')
 
-@include('layouts.nav')
-
+@include('layouts.nav-admin')
 <div class="container">
 
            <div class="row">

@@ -16,6 +16,7 @@
     <!-- Bootstrap core CSS -->
     {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css')}}
 
+
     {{ HTML::style('css/bootstrap.css')}}
 
 
@@ -37,8 +38,8 @@
 </head>
 
 <body>
-    
-    @include('layouts.flash')
+
+        @include('flash::message')
 
         @yield('container')
 

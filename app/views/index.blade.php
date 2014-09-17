@@ -42,7 +42,7 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Web Development:</h2>
+                    <h1 class="section-heading">Web Development:</h1>
                     <p class="lead">If you want to be recognizable, you have to have a modern, simple and beautiful web page, like this one. It's your window to the world, so you better be good at this. Guess what? We can help you with that!</p>
                     <ul class="list-inline intro-social-buttons">
                         <li>{{ HTML::link('/web', 'More info', array('class'=>'button-contact')) }}</li>
@@ -67,7 +67,7 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Content Marketing</h2>                    
+                    <h1 class="section-heading">Content Marketing</h1>
                     <p class="lead">In this cluttered world you have to stand up somehow. Google Ads? Maybe, but we prefered writing stories about your business, because people love to read about you and your work. If you have a good story, chances are that you will become more recognizable. So why don't you try?</p>
                      <ul class="list-inline intro-social-buttons">
                         <li>{{ HTML::link('/contact', 'Contact us', array('class'=>'button-contact')) }}</li>

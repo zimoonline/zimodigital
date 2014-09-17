@@ -4,14 +4,16 @@
 @section('container')
     @include('layouts.nav')
 
-    <img class="thumb-photo" style="background:url({{ asset('images/tn-'.$post->thumbnail) }}) no-repeat center; background-size: 100%;" />
+    <img class="thumb-photo" style="background:url({{ asset('images/'.$post->thumbnail) }}) no-repeat center; background-size: 100%;" />
 
         <div class="col-md-6 col-md-offset-3" >
 
                 <h1>{{ $post->title }}</h1>
-                <p>{{ $post->body }}</p>
+                <p>{{ HTML::image( '/images/' . $post->user->thumbnail, null, ['class' => 'img-circle', 'width' => '40px']) }}
+                                   <span class="thumb-user">{{ $post->user->ime,' ', $post->user->prezime  }}</span></p>
+                <article>{{ $post->body }}</article>
 
-                <p>Author: {{ $post->user->ime,' ', $post->user->prezime  }}</p>
+
 
 
                  <p>

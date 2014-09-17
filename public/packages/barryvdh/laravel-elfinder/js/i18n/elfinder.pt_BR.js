@@ -209,7 +209,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'about'           : 'Sobre',
 			'shortcuts'       : 'Atalhos',
 			'help'            : 'Ajuda',
-			'webfm'           : 'Gerenciador de arquivos webs',
+			'webfm'           : 'Gerenciador de arquivos web',
 			'ver'             : 'Versão',
 			'protocolver'     : 'Versão do protocolo',
 			'homepage'        : 'Home do projeto',

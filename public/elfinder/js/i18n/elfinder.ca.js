@@ -194,7 +194,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'about'           : 'Quant a',
 			'shortcuts'       : 'Dreceres',
 			'help'            : 'Ajuda',
-			'webfm'           : 'Gestor de fitxers webs',
+			'webfm'           : 'Gestor de fitxers web',
 			'ver'             : 'Versió',
 			'protocol'        : 'versió de protocol',
 			'homepage'        : 'Pàgina del projecte',
